@@ -1,0 +1,11 @@
+.characterPicture {
+    width: 250px;
+    height: 260px;
+    border: green solid 3px;
+    text-align: center;
+
+}
+
+.enemyRed {
+	background-color: red;
+}
