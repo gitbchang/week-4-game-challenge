@@ -28,12 +28,12 @@
 		}
 		$("#obiButton").click(function(){
 			$("#startArea").html("<div>");
-					var playerSelectChar = $("div");
+					var playerSelectChar = $("<div>");
 					playerSelectChar.addClass("characterPicture");
 					playerSelectChar.append("<p>Obi-wan Kenobi</p>");
 					playerSelectChar.append("<img src=" + "assets/images/obiwan.jpg" + ">");
 					playerSelectChar.append("<p>" + obiWanLife + "</p>");
-					$("#playerCharArea").html(playerSelectChar);
+					$("#playerCharArea").append(playerSelectChar);
 				});
 
 		}); // end of document.ready
