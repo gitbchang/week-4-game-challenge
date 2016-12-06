@@ -1,11 +1,41 @@
-.characterPicture {
+/*.characterPicture {
     width: 250px;
     height: 260px;
     border: green solid 3px;
     text-align: center;
 
+}*/
+
+.initialCharacter{
+	box-sizing: border-box;
+	width: 250px;
+    height: 260px;
+    border: black solid 3px;
+    text-align: center;
+    margin: 10px;
 }
 
-.enemyRed {
-	background-color: red;
+.playerSelectedChar {
+	box-sizing: border-box;
+	width: 250px;
+    height: 260px;
+    border: green solid 3px;
+    text-align: center;
+}
+
+.futureEnemy{
+	box-sizing: border-box;
+	width: 250px;
+    height: 260px;
+    border: red solid 3px;
+    text-align: center;
+    margin: 10px;
+}
+
+.currentEnemy{
+	box-sizing: border-box;
+	width: 250px;
+    height: 260px;
+    border: red solid 3px;
+    text-align: center;
 }

@@ -2,43 +2,22 @@
 <html>
 <head>
 	<title>Star Wars RPG - Game</title>
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
-	<script type="text/javascript" src="assets/javascript/jquery.js" ></script>
+	
 	<script
 	src="https://code.jquery.com/jquery-3.1.1.js"
 	integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
 	crossorigin="anonymous"></script>
+	<script
+	  src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"
+	  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+	  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<!-- Start of Javascript/Jquery code -->
-	<script type="text/javascript">
-	$(document).ready(function(){
-		var obiWanLife = 120;
-		var lukeLife = 100;
-		var sidiousLife = 150;
-		var maulLife = 180;
-		var attack = 8;
-		var counterAttack = 25;
-		//How to make this update only the player chosen character?
-		function updatePlayerCharHP() {
-			$("#obiHP").html(obiWanLife);
-		}
-		function updateEnemyCharHP(){
-		}
-		$("#obiButton").click(function(){
-			$("#startArea").html("<div>");
-					var playerSelectChar = $("<div>");
-					playerSelectChar.addClass("characterPicture");
-					playerSelectChar.append("<p>Obi-wan Kenobi</p>");
-					playerSelectChar.append("<img src=" + "assets/images/obiwan.jpg" + ">");
-					playerSelectChar.append("<p>" + obiWanLife + "</p>");
-					$("#playerCharArea").append(playerSelectChar);
-				});
 
-		}); // end of document.ready
-					</script>
-				</head>
+</head>
 <body>
 	<div class="container">
 		<div class="jumbotron">
@@ -51,68 +30,40 @@
 		</div> <!-- end of jumbotron -->
 		<!-- Body -->
 		<div class="container">
-			<div id="startArea" class="row">
-				
-				<div class="col-md-3">
-					<button id="obiButton" class="btn btn-default characterPicture">
-					<p>Obi-wan Kenobi</p>
-					<img src="assets/images/obiwan.jpg">
-					
-					<p>120</p>
-					</button>
-				</div>
-				<div class="col-md-3">
-					<button id="lukeButton" class="btn btn-default characterPicture">
-					<p>Luke Skywalker</p>
-					<img src="assets/images/Luke_Skywalker.jpg">
-					
-					<p>100</p>
-					</button>
-				</div>
-				<div class="col-md-3">
-					<button id="sidiousButton" class="btn btn-default characterPicture">
-					<p>Darth Sidious</p>
-					<img src="assets/images/Darth_Sidious.jpg">
-					
-					<p>150</p>
-					</button>
-				</div>
-				<div class="col-md-3">
-					<button id="maulButton" class="btn btn-default characterPicture">
-					<p>Darth Maul</p>
-					<img src="assets/images/darth_maul.jpg">
-					
-					<p>180</p>
-					</button>
-				</div>
-				
+
+			<div class="row">
+				<div id="startArea"></div>
+			
 				
 			</div>
 			<!-- Player Character appears here -->
 			<div class="row">
-				<div id="playerCharArea" class="col-md-3">
-					<h3>Your Character</h3>
-					<p>1. Put Player choice character here</p>
+				<div id="playerCharArea">
 				</div>
 			</div>
+			
 			<!-- All Other enemies appear here -->
 			<div class="row">
-				<div class="col-md-9">
-					<h3>Enemies Available to Attack</h3>
-					<p>2. Put 3 Enemy Characters here</p>
+				<h4>Enemies Available to Attack</h4>
+					
+			</div>
+			<div class="row">
+				<div class="col-md-9" id="enemyCharArea">
+					
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3">
-					<h3>Fight Section</h3>
-					<button class="btn btn-default">Attack</button>
+				<div id="buttonArea" class="col-md-3">
+					<button id="attackButton" class="btn btn-default">Attack</button>
 				</div>
 				
 			</div>
 			<div class="row">
-				<div class="col-md-3">
-					<h3>Defender</h3>
-					<p>3. Move User-selected enemy here</p>
+				<h4>Defender</h4>
+			</div>
+			<div class="row">
+				<div id="defenderArea">
+					
 				</div>
 				
 			</div>
