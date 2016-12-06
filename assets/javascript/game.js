@@ -110,7 +110,7 @@ $(document).ready(function(){
 		$(document).on("click", "#attackButton", function(){
 			if(currentEnemySelected === 1){ 
 				starWarsChar[selectedCharID].hp = starWarsChar[selectedCharID].hp - starWarsChar[enemyCharID].counter;
-				starWarsChar[enemyCharID].hp = starWarsChar[enemyCharID].hp - (starWarsChar[selectedCharID].counter *(timesAttacked+0));
+				starWarsChar[enemyCharID].hp = starWarsChar[enemyCharID].hp - (starWarsChar[selectedCharID].counter * timesAttacked);
 
 				$("div.playerSelectedChar > p.health").html("Health: " + starWarsChar[selectedCharID].hp);
 
