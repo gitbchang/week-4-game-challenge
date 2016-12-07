@@ -2,32 +2,40 @@ $(document).ready(function(){
 		
 		var starWarsChar = [
 			{
-				name: "Obi-Wan Kenobi",
-				hp: 120,
-				counter: 5,
-				picture: "assets/images/obiwan.jpg",
-				enemyAttack: 15
-			},
-			{
-				name: "Luke Skywalker",
+				name: "Dolores",
 				hp: 100,
-				counter: 5,
-				picture: "assets/images/Luke_Skywalker.jpg",
-				enemyAttack: 15
+				attack: 5,
+				counter: 12,
+				enemyattack: 7,
+				picture: "assets/images/dolores-profile-resized.jpg",
+				
 			},
 			{
-				name: "Darth Sidious",
+				name: "Maeve",
+				hp: 130,
+				attack: 10,
+				counter: 5,
+				enemyattack: 10,
+				picture: "assets/images/maeve-profile-resized.jpg",
+				
+			},
+			{
+				name: "Teddy Flood",
 				hp: 150,
+				attack: 12,
 				counter: 5,
-				picture: "assets/images/Darth_Sidious.jpg",
-				enemyAttack: 15
+				enemyattack: 15,
+				picture: "assets/images/teddy-profile-resized.jpg",
+				
 			},
 			{
-				name: "Darth Maul",
+				name: "Man in Black",
 				hp: 180,
-				counter: 5,
-				picture: "assets/images/darth_maul.jpg",
-				enemyAttack: 15
+				attack: 15,
+				counter: 3,
+				enemyattack: 25,
+				picture: "assets/images/william-profile-resized.jpg",
+				
 			}
 		];
 
@@ -56,6 +64,9 @@ $(document).ready(function(){
 		 		charDiv.append(charImg);
 		 		charDiv.append('<p class="health">Health: '+starWarsChar[i].hp+'</p>');
 
+		 		$("#instructionHeader").html("<p>     Choose a character below to get started!</p>");
+		 		$("#instructionHeader").effect( "highlight", {color:"#ffc50f"}, 2000);
+
 		 		$("#startArea").append(charDiv);
 		 		$("#restartButton").remove();
 		 	}
@@ -83,6 +94,9 @@ $(document).ready(function(){
   				$("#enemyCharArea").html(removeEnemies);
   				$("#playerCharArea").append(this);
 
+  				$("#instructionHeader").html("<p>     Now Click On An Enemy You Wish To Fight</p>")
+  				$("#instructionHeader").effect( "highlight", {color:"#ffc50f"}, 2000);
+
   				playerCharSelected++;
   			}
 		  
@@ -98,7 +112,11 @@ $(document).ready(function(){
 				$(this).addClass("currentEnemy");
 				enemyCharID = $(this).attr("id");
 				currentEnemySelected++;
+				// Hide area until current enemy defeated
 				$("#enemyCharArea").hide(1000);
+				// Instruction Update
+				$("#instructionHeader").html('<p class="text-center">Click the "Attack" Button to Fight</p>')
+				$("#instructionHeader").effect( "highlight", {color:"#ffc50f"}, 2000);
 			}
 			else {
 				console.log("defeat current enemy first");	
@@ -109,16 +127,21 @@ $(document).ready(function(){
 
 		$(document).on("click", "#attackButton", function(){
 			if(currentEnemySelected === 1){ 
-				starWarsChar[selectedCharID].hp = starWarsChar[selectedCharID].hp - starWarsChar[enemyCharID].counter;
-				starWarsChar[enemyCharID].hp = starWarsChar[enemyCharID].hp - (starWarsChar[selectedCharID].counter * timesAttacked);
+				// enemy attack calculation
+				starWarsChar[selectedCharID].hp = starWarsChar[selectedCharID].hp - starWarsChar[enemyCharID].enemyattack;
+				// play char attack calculation
+				starWarsChar[enemyCharID].hp = starWarsChar[enemyCharID].hp - (starWarsChar[selectedCharID].attack + (starWarsChar[selectedCharID].counter * timesAttacked));
 
 				$("div.playerSelectedChar > p.health").html("Health: " + starWarsChar[selectedCharID].hp);
 
 				$("div.currentEnemy > p.health").html("Health: " + starWarsChar[enemyCharID].hp);
-				$("div.currentEnemy").effect( "highlight", {color:"#ff0029"}, 1000);
-				$("div.playerSelectedChar").effect( "highlight", {color:"#ff0029"}, 1000);
+
+				// red blink effect
+				$("div.currentEnemy").effect( "highlight", {color:"#ff0029"}, 500);
+				$("div.playerSelectedChar").effect( "highlight", {color:"#ff0029"}, 500);
 
 				isEnemyDead(); // check if enemy is dead
+				isPlayerDead(); // check if player is dead
 				playerWin();
 				timesAttacked++;
 			}
@@ -140,16 +163,34 @@ $(document).ready(function(){
 			}
 		}
 
+		function isPlayerDead(){
+			if(starWarsChar[selectedCharID].hp < 1){
+				//animation for dead hero
+				alert("Your Hero has been Defeated!");
+				$("#instructionHeader").html('<p class="text-center">Click the "Restart" Button to Try Again</p>')
+				$("#instructionHeader").effect( "highlight", {color:"#ffc50f"}, 2000);
+				createRestartButton();
+
+			}
+		}
+
 		function playerWin(){
 			if(enemiesDefeated === 3){
 				alert("You Win!");
+				createRestartButton();
+				
+			}
+		}
+
+		function createRestartButton(){
 				var restartButton = $("<button>");
 				restartButton.text("Restart");
 				restartButton.addClass("btn btn-default");
 				restartButton.attr("id", "restartButton");
 				$("#buttonArea").append(restartButton);
-			}
 		}
+
+
 
 		function restart(){
 			currentEnemySelected = 0;
@@ -159,6 +200,7 @@ $(document).ready(function(){
 		    
 		    $("#playerCharArea").empty();
 		    $("#enemyCharArea").empty();
+		    $("#defenderArea").empty();
 		    for(var x = 0; x < starWarsCharHp.length; x++){
 		    	starWarsChar[x].hp = starWarsCharHp[x];
 		    }

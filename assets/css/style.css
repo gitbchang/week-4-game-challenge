@@ -6,7 +6,42 @@
 
 }*/
 
+
+
+
+body { 
+background: url(../images/westworld-background.jpg) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+body{
+	color: white;
+}
+
+#jumbo {
+	
+	background: rgba(50, 54, 57, 0.25);
+}
+
+#instructionHeader{
+	border-radius: 25px;
+}
+
+#yourHeroBox{
+	background: rgba(50, 54, 57, 0.50);
+	border-radius: 25px;
+}
+
+#yourEnemyBox{
+	background: rgba(50, 54, 57, 0.50);
+	border-radius: 25px;
+}
+
 .initialCharacter{
+	background: rgba(50, 54, 57, 0.50);
 	box-sizing: border-box;
 	width: 250px;
     height: 260px;
@@ -16,6 +51,7 @@
 }
 
 .playerSelectedChar {
+	background: rgba(50, 54, 57, 0.50);
 	box-sizing: border-box;
 	width: 250px;
     height: 260px;
@@ -24,6 +60,7 @@
 }
 
 .futureEnemy{
+	background: rgba(50, 54, 57, 0.50);
 	box-sizing: border-box;
 	width: 250px;
     height: 260px;
@@ -33,6 +70,7 @@
 }
 
 .currentEnemy{
+	background: rgba(50, 54, 57, 0.50);
 	box-sizing: border-box;
 	width: 250px;
     height: 260px;
