@@ -69,6 +69,7 @@ $(document).ready(function(){
 
 		 		$("#startArea").append(charDiv);
 		 		$("#restartButton").remove();
+		 		createAttackButton();
 		 	}
 		 	
 		 }
@@ -190,6 +191,14 @@ $(document).ready(function(){
 				restartButton.addClass("btn btn-default");
 				restartButton.attr("id", "restartButton");
 				$("#buttonArea").html(restartButton);
+		}
+
+		function createAttackButton(){
+			var attackButton = $("<button>");
+			attackButton.text("Attack");
+			attackButton.addClass("btn btn-default");
+			attackButton.attr("id", "attackButton");
+			$("#buttonArea").html(attackButton);
 		}
 
 
