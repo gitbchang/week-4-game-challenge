@@ -3,8 +3,8 @@ $(document).ready(function(){
 		var starWarsChar = [
 			{
 				name: "Dolores",
-				hp: 100,
-				attack: 5,
+				hp: 120,
+				attack: 8,
 				counter: 12,
 				enemyattack: 7,
 				picture: "assets/images/dolores-profile-resized.jpg",
@@ -24,7 +24,7 @@ $(document).ready(function(){
 				hp: 150,
 				attack: 12,
 				counter: 5,
-				enemyattack: 15,
+				enemyattack: 12,
 				picture: "assets/images/teddy-profile-resized.jpg",
 				
 			},
@@ -33,7 +33,7 @@ $(document).ready(function(){
 				hp: 180,
 				attack: 15,
 				counter: 3,
-				enemyattack: 25,
+				enemyattack: 20,
 				picture: "assets/images/william-profile-resized.jpg",
 				
 			}
@@ -94,7 +94,7 @@ $(document).ready(function(){
   				$("#enemyCharArea").html(removeEnemies);
   				$("#playerCharArea").append(this);
 
-  				$("#instructionHeader").html("<p>     Now Click On An Enemy You Wish To Fight</p>")
+  				$("#instructionHeader").html("<p>Now Click On An Enemy You Wish To Fight</p>")
   				$("#instructionHeader").effect( "highlight", {color:"#ffc50f"}, 2000);
 
   				playerCharSelected++;
@@ -160,6 +160,8 @@ $(document).ready(function(){
 				enemiesDefeated++;
 				currentEnemySelected = 0;
 				$("#enemyCharArea").show(1000);
+				$("#instructionHeader").html("<p>Click On An Enemy You Wish To Fight</p>")
+  				$("#instructionHeader").effect( "highlight", {color:"#ffc50f"}, 2000);
 			}
 		}
 
@@ -187,7 +189,7 @@ $(document).ready(function(){
 				restartButton.text("Restart");
 				restartButton.addClass("btn btn-default");
 				restartButton.attr("id", "restartButton");
-				$("#buttonArea").append(restartButton);
+				$("#buttonArea").html(restartButton);
 		}
 
 
